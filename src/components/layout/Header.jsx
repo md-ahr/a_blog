@@ -9,6 +9,8 @@ function Header() {
   const [isDropdownShow, setIsDropdownShow] = useState(false);
   const [isMenuDropdownShow, setIsMenuDropdownShow] = useState(false);
 
+  const blogId = pathname.split('/')[2];
+
   const handleDropdown = () => {
     setIsDropdownShow(!isDropdownShow);
   };
@@ -44,14 +46,14 @@ function Header() {
             </button>
           </div>
           <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
-            <div className='flex flex-shrink-0 items-center'>
+            <div className='flex flex-shrink-0 items-center mr-auto ml-[40px] md:mr-0 md:ml-0'>
               <span className='text-white text-xl tracking-widest block h-8 w-auto lg:hidden'>A_BLOG</span>
               <span className='text-white text-xl tracking-widest hidden h-8 w-auto lg:block'>A_BLOG</span>
             </div>
             <div className='hidden sm:ml-6 sm:block'>
               <div className='flex space-x-4'>
                 <NavLink to='/' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/' ? 'bg-gray-900 text-white' : 'text-gray-300'}`} aria-current='page'>Home</NavLink>
-                <NavLink to='/blog' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/blog' ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Blog</NavLink>
+                <NavLink to='/blog' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/blog' || pathname === `/blog/${blogId}` ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Blog</NavLink>
                 <NavLink to='/contact' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/contact' ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Contact</NavLink>
               </div>
             </div>
