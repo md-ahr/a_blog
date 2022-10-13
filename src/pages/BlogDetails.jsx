@@ -100,26 +100,26 @@ function BlogDetails() {
             <form className='mt-4 py-6 px-8 border border-slate-300 rounded'>
               <div className='flex items-center'>
                 <div className='w-[50%]'>
-                  <label htmlFor='name' className='block text-slate-600 mb-2'>Name</label>
-                  <input type='text' name='name' id='name' className='py-2 px-3 border rounded-sm w-full' />
+                  <label htmlFor='name' className='block text-slate-700 pb-2'>Name</label>
+                  <input type='text' name='name' id='name' className='py-3 px-4 border border-slate-300 rounded-sm w-full' />
                 </div>
                 <div className='w-[50%] ml-6'>
-                  <label htmlFor='email' className='block text-slate-600 mb-2'>Email</label>
-                  <input type='email' name='email' id='email' className='py-2 px-3 border rounded-sm w-full' />
+                  <label htmlFor='email' className='block text-slate-700 pb-2'>Email</label>
+                  <input type='email' name='email' id='email' className='py-3 px-4 border border-slate-300 rounded-sm w-full' />
                 </div>
               </div>
               <div className='mt-4'>
-                <label htmlFor='message' className='block text-slate-600 mb-2'>Message</label>
-                <textarea name='message' id='message' rows='5' className='py-2 px-3 border rounded-sm w-full' />
+                <label htmlFor='message' className='block text-slate-700 pb-2'>Message</label>
+                <textarea name='message' id='message' rows='5' className='py-3 px-4 border border-slate-300 rounded-sm w-full' />
               </div>
               <div className='mt-5 text-right'>
-                <button type='submit' className='py-2 px-6 border border-emerald-500 text-emerald-500 rounded hover:bg-emerald-500 hover:text-white transition duration-500 ease'>Submit</button>
+                <button type='submit' className='py-2 px-6 border border-emerald-400 text-emerald-500 rounded hover:bg-emerald-400 hover:text-white transition duration-500 ease'>Submit</button>
               </div>
             </form>
           </div>
         </div>
 
-        <div className='mt-6 md:mt-8 lg:mt-0 lg:ml-8 p-5 w-[100%] lg:w-[35%] shadow-sm border rounded-sm border-slate-200'>
+        <div className='mt-6 md:mt-8 lg:mt-0 lg:ml-8 p-5 w-[100%] lg:w-[35%] shadow rounded-sm bg-white'>
           <div className='flex items-center border-b border-slate-100 pb-8 py-2'>
             <input type='search' className='p-3 w-full bg-slate-200 rounded-bl rounded-tl' placeholder='Search...' />
             <button type='button' className='text-white bg-emerald-500 px-4 py-[15px] rounded-tr rounded-br text-lg'><MdSearch /></button>

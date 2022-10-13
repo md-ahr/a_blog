@@ -31,7 +31,7 @@ function Header() {
   }, []);
 
   return (
-    <nav className='bg-gray-800'>
+    <nav className='bg-gray-800 sticky top-0'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-16 items-center justify-between'>
           <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
@@ -47,13 +47,12 @@ function Header() {
           </div>
           <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
             <div className='flex flex-shrink-0 items-center mr-auto ml-[40px] md:mr-0 md:ml-0'>
-              <span className='text-white text-xl tracking-widest block h-8 w-auto lg:hidden'>A_BLOG</span>
-              <span className='text-white text-xl tracking-widest hidden h-8 w-auto lg:block'>A_BLOG</span>
+              <NavLink to='/' className='text-white text-xl tracking-widest block h-8 w-auto lg:hidden'>A_BLOG</NavLink>
+              <NavLink to='/' className='text-white text-xl tracking-widest hidden h-8 w-auto lg:block'>A_BLOG</NavLink>
             </div>
             <div className='hidden sm:ml-6 sm:block'>
               <div className='flex space-x-4'>
-                <NavLink to='/' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/' ? 'bg-gray-900 text-white' : 'text-gray-300'}`} aria-current='page'>Home</NavLink>
-                <NavLink to='/blog' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/blog' || pathname === `/blog/${blogId}` ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Blog</NavLink>
+                <NavLink to='/' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/' || pathname === `/blog/${blogId}` ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Blog</NavLink>
                 <NavLink to='/contact' className={`hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${pathname === '/contact' ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Contact</NavLink>
               </div>
             </div>
@@ -82,15 +81,14 @@ function Header() {
           </div>
 
           <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-            <NavLink to='/login' className='text-emerald-100'>Login</NavLink>
-            <NavLink to='/register' className='text-white ml-6 bg-emerald-500 font-medium px-4 py-2 rounded-full text-sm hover:bg-emerald-600'>Sign Up</NavLink>
+            <NavLink to='/login' className={`font-medium ml-6 ${pathname === '/login' ? 'text-white bg-emerald-500 px-4 py-2 rounded-full text-sm hover:bg-emerald-600' : 'text-emerald-100'}`}>Login</NavLink>
+            <NavLink to='/register' className={`font-medium rounded-full text-sm px-4 ml-6 ${pathname === '/register' ? 'text-white bg-emerald-500 rounded-full py-2 hover:bg-emerald-600' : 'text-emerald-100 border-2 border-emerald-400 py-[6px]'}`}>Register</NavLink>
           </div>
         </div>
       </div>
       {isMenuDropdownShow && <div className='sm:hidden' id='mobile-menu'>
         <div className='space-y-1 px-2 pt-2 pb-3'>
-          <NavLink to='/' className={`hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${pathname === '/' ? 'bg-gray-900 text-white' : 'text-gray-300'}`} aria-current='page'>Home</NavLink>
-          <NavLink to='/blog' className={`hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${pathname === '/blog' ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Blog</NavLink>
+          <NavLink to='/' className={`hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${pathname === '/' || pathname === `/blog/${blogId}` ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Blog</NavLink>
           <NavLink to='/contact' className={`hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${pathname === '/contact' ? 'bg-gray-900 text-white' : 'text-gray-300'}`}>Contact</NavLink>
         </div>
       </div>}
