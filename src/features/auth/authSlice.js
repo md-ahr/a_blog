@@ -1,0 +1,26 @@
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  accessToken: undefined,
+  user: undefined,
+};
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {
+    userLoggedIn: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.accessToken = action.payload.accessToken;
+      state.user = action.payload.user;
+    },
+    userLoggedOut: (state) => {
+      state.accessToken = undefined;
+      state.user = undefined;
+    },
+  },
+});
+
+export const { userLoggedIn, userLoggedOut } = authSlice.actions;
+export default authSlice.reducer;
