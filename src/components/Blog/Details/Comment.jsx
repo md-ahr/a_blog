@@ -41,12 +41,12 @@ function Comment() {
         </div>
       </div>
       <form className='mt-4 py-6 px-8 border border-slate-300 rounded'>
-        <div className='flex items-center'>
-          <div className='w-[50%]'>
+        <div className='flex items-center flex-wrap'>
+          <div className='basis-full sm:basis-[47.5%]'>
             <label htmlFor='name' className='block text-slate-700 pb-2'>Name</label>
             <input type='text' name='name' id='name' className='py-3 px-4 border border-slate-300 rounded-sm w-full' />
           </div>
-          <div className='w-[50%] ml-6'>
+          <div className='mt-4 basis-full sm:basis-[47.5%] sm:ml-6 sm:mt-0'>
             <label htmlFor='email' className='block text-slate-700 pb-2'>Email</label>
             <input type='email' name='email' id='email' className='py-3 px-4 border border-slate-300 rounded-sm w-full' />
           </div>

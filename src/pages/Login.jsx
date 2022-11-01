@@ -4,7 +4,7 @@ import loginImage from '../assets/images/login-register.svg';
 
 function Login() {
   return (
-    <div className='py-6 sm:py-8 flex justify-center items-center min-h-[calc(100vh-108px)]'>
+    <div className='py-8 sm:py-12 flex justify-center items-center min-h-[calc(100vh-108px)]'>
       <form className='w-full max-w-[600px] py-6 px-8 sm:py-10 sm:px-12 bg-white shadow-sm rounded-sm'>
         <p className='mb-6 text-center text-[18px] sm:text-[25px] uppercase font-medium'>Join for awesome contents</p>
         <img src={loginImage} className='w-[145px] mx-auto drop-shadow-[0_0_45px_rgba(0,255,255,0.1)]' alt='login' />

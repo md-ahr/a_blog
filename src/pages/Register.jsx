@@ -46,7 +46,7 @@ function Register() {
   };
 
   return (
-    <div className='py-6 sm:py-8 flex justify-center items-center min-h-[calc(100vh-108px)]'>
+    <div className='py-8 sm:py-12 flex justify-center items-center min-h-[calc(100vh-108px)]'>
       <form onSubmit={handleRegisterSubmit} className='w-full max-w-[600px] py-6 px-8 sm:py-10 sm:px-12 bg-white shadow-sm rounded-sm'>
         {error !== '' && <p>Error...</p>}
         <p className='mb-6 text-center text-[18px] sm:text-[25px] uppercase font-medium'>Join for awesome contents</p>

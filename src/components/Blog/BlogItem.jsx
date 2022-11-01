@@ -5,8 +5,8 @@ function BlogItem() {
   const id = 1;
 
   return (
-    <div className='max-w-lg'>
-      <div className='bg-white shadow rounded max-w-sm mb-2'>
+    <div className='w-full sm:max-w-lg'>
+      <div className='bg-white shadow rounded mb-2'>
         <NavLink to={`/blog/${id}`}>
           <img className='rounded-t' src='https://flowbite.com/docs/images/blog/image-1.jpg' alt='' />
         </NavLink>

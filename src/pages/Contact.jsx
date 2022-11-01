@@ -3,7 +3,7 @@ import contactImage from '../assets/images/contact.svg';
 
 function Contact() {
   return (
-    <div className='py-6 sm:py-8 flex items-center justify-center min-h-[calc(100vh-108px)]'>
+    <div className='py-8 sm:py-12 flex items-center justify-center min-h-[calc(100vh-108px)]'>
       <div className='w-full max-w-[600px] px-6 py-6 sm:px-10 sm:py-8 mx-auto bg-white shadow-sm rounded-sm'>
         <div className='max-w-xl mx-auto space-y-6'>
           <form>
