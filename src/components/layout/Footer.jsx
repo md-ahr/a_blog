@@ -2,6 +2,7 @@ import React from 'react';
 import { MdPhone, MdMailOutline } from 'react-icons/md';
 import { IoLogoGithub } from 'react-icons/io5';
 import { NavLink, useLocation } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 function Footer() {
   const { pathname } = useLocation();
@@ -85,6 +86,7 @@ function Footer() {
           all rights reserved
         </p>
       </div>
+      <Toaster />
     </>
   );
 }

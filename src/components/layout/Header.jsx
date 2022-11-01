@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import useAuthCheck from '../../hooks/useAuthCheck';
 
 function Header() {
   const { pathname } = useLocation();
@@ -10,6 +11,8 @@ function Header() {
   const [isMenuDropdownShow, setIsMenuDropdownShow] = useState(false);
 
   const blogId = pathname.split('/')[2];
+
+  const authChecked = useAuthCheck();
 
   const handleDropdown = () => {
     setIsDropdownShow(!isDropdownShow);
@@ -57,7 +60,7 @@ function Header() {
               </div>
             </div>
           </div>
-          <div className='hidden absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
+          <div className={`absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ${!authChecked && 'd-none'}`}>
             <button type='button' className='rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
               <span className='sr-only'>View notifications</span>
               <svg className='h-6 w-6' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' aria-hidden='true'>
@@ -80,7 +83,7 @@ function Header() {
             </div>
           </div>
 
-          <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
+          <div className={`absolute inset-y-0 right-0 hidden items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ${authChecked && 'flex'}`}>
             <NavLink to='/login' className={`font-medium ml-6 ${pathname === '/login' ? 'text-white bg-emerald-500 px-4 py-2 rounded-full text-sm hover:bg-emerald-600' : 'text-emerald-100'}`}>Login</NavLink>
             <NavLink to='/register' className={`font-medium rounded-full text-sm px-4 ml-6 ${pathname === '/register' ? 'text-white bg-emerald-500 rounded-full py-2 hover:bg-emerald-600' : 'text-emerald-100 border-2 border-emerald-400 py-[6px]'}`}>Register</NavLink>
           </div>
