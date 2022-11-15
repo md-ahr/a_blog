@@ -19,8 +19,8 @@ const useAuthCheck = () => {
           }),
         );
       }
+      setAuthChecked(true);
     }
-    setAuthChecked(true);
   }, [dispatch]);
   return authChecked;
 };

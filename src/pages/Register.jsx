@@ -22,10 +22,12 @@ function Register() {
 
   useEffect(() => {
     if (responseError?.data) {
-      toast.error('Registration failed! Please try again...');
+      toast.error((responseError.originalStatus === 404 || responseError.originalStatus === 500) ? 'Registration failed, please try again...' : responseError.data);
     }
     if (data?.accessToken && data?.user) {
+      toast.success('Registration completed successfully!');
       navigate('/');
+      reset();
     }
   }, [data, responseError, navigate]);
 
@@ -35,8 +37,6 @@ function Register() {
       email: user?.email,
       password: user?.password,
     });
-    toast.success('Registration completed successfully!');
-    reset();
   };
 
   return (
