@@ -9,6 +9,7 @@ import Layout from './components/Layout';
 import Blog from './pages/Blog';
 import BlogDetails from './pages/BlogDetails';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import useAuthCheck from './hooks/useAuthCheck';
@@ -24,6 +25,7 @@ function App() {
           <Route path='/' element={<Blog />} />
           <Route path='/blog/:id' element={<BlogDetails />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/admin' element={<Admin />} />
           {!authChecked ? (
             <>
               <Route path='/login' element={<Login />} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import store from '../../app/store';
+import useAuth from '../../hooks/useAuth';
 import { userLoggedOut } from '../../features/auth/authSlice';
 
 function Header() {
@@ -14,7 +14,7 @@ function Header() {
 
   const blogId = pathname.split('/')[2];
 
-  const authChecked = store.getState().auth.accessToken;
+  const isLoggedIn = useAuth();
 
   const dispatch = useDispatch();
 
@@ -69,7 +69,7 @@ function Header() {
               </div>
             </div>
           </div>
-          <div className={`absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ${authChecked ? 'flex' : 'hidden'}`}>
+          <div className={`absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ${isLoggedIn ? 'flex' : 'hidden'}`}>
             <button type='button' className='rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
               <span className='sr-only'>View notifications</span>
               <svg className='h-6 w-6' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' aria-hidden='true'>
@@ -85,14 +85,14 @@ function Header() {
               </div>
               {isDropdownShow
               && <div className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none' role='menu' aria-orientation='vertical' aria-labelledby='user-menu-button' tabIndex='-1'>
-                <NavLink to='/profile' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' tabIndex='-1' id='user-menu-item-0'>Your Profile</NavLink>
-                <NavLink to='/settings' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' tabIndex='-1' id='user-menu-item-1'>Settings</NavLink>
+                <NavLink to='/admin' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' tabIndex='-1' id='user-menu-item-0'>Admin Panel</NavLink>
+                <NavLink to='/profile' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' tabIndex='-1' id='user-menu-item-1'>Your Profile</NavLink>
                 <NavLink to='/' onClick={handleLogout} className='block px-4 py-2 text-sm text-gray-700' role='menuitem' tabIndex='-1' id='user-menu-item-2'>Sign out</NavLink>
               </div>}
             </div>
           </div>
 
-          <div className={`absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ${!authChecked ? 'flex' : 'hidden'}`}>
+          <div className={`absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ${!isLoggedIn ? 'flex' : 'hidden'}`}>
             <NavLink to='/login' className={`font-medium ml-6 ${pathname === '/login' ? 'text-white bg-emerald-500 px-4 py-2 rounded-full text-sm hover:bg-emerald-600' : 'text-emerald-100'}`}>Login</NavLink>
             <NavLink to='/register' className={`font-medium rounded-full text-sm px-4 ml-6 ${pathname === '/register' ? 'text-white bg-emerald-500 rounded-full py-2 hover:bg-emerald-600' : 'text-emerald-100 border-2 border-emerald-400 py-[6px]'}`}>Register</NavLink>
           </div>
