@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import useAuthCheck from '../../hooks/useAuthCheck';
+import store from '../../app/store';
 import { userLoggedOut } from '../../features/auth/authSlice';
 
 function Header() {
@@ -14,7 +14,7 @@ function Header() {
 
   const blogId = pathname.split('/')[2];
 
-  const authChecked = useAuthCheck();
+  const authChecked = store.getState().auth.accessToken;
 
   const dispatch = useDispatch();
 
